@@ -1,6 +1,6 @@
 .container {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   max-width: 1200px;
 }
@@ -8,23 +8,27 @@
 header {
   background-color: #35424a;
   color: #ffffff;
-  padding: 10px 0;
+  padding: 20px;
   text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
 .profile-section {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  align-items: center;
+  margin: 20px auto;
   padding: 0 20px;
 }
 
-.profile-section .profile-photo {
-  flex: 0.5;
-}
-
 .profile-section .profile-photo img {
-  max-width: 100px;
+  max-width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-section .personal-info {
@@ -32,49 +36,26 @@ header {
   text-align: right;
 }
 
-.profile-section .personal-info h1 {
-  margin: 0;
-}
-
-.education-section {
+section {
   background-color: #e2e2e2;
   padding: 20px;
   margin: 20px 0;
+  border-radius: 8px;
 }
 
-.education-section,
-.education-entry {
-  margin: 0 auto;
+ul {
+  list-style: disc;
+  margin-left: 20px;
 }
 
-.education-section ul {
-  list-style-type: none;
-  padding: 0;
-}
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.experience-section {
-  background-color: #e2e2e2;
-  padding: 20px;
-  margin: 20px 0;
-}
-
-.experience-section,
-.experience-entry {
-  margin: 0 auto;
-}
-
-.experience-section,
-.experience-entry ul {
-  list-style: none;
-}
-
-.hobbies-section {
-  background-color: #e2e2e2;
-  padding: 20px;
-  margin: 20px 0;
-}
-
-.hobbies-section ul {
-  list-style-type: none;
-  padding: 0;
+  .profile-section .personal-info {
+    text-align: center;
+    margin-top: 10px;
+  }
 }
