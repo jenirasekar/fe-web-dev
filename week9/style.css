@@ -1,0 +1,16 @@
+.box {
+    width: 200px;
+    height: 200px;text-align: center;
+    line-height: 100px;
+}
+
+.c1 {
+    background-color: aquamarine;
+}
+
+.c2 {
+    background-color: bisque;
+    position: relative;
+    top: -90px;
+    left: 100px;
+}

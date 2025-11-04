@@ -1,0 +1,65 @@
+.b1 {
+    width: 100px;
+    height: 100px;
+    background-color:cyan;
+}
+
+.b2 {
+    min-width: 300px;
+    max-width: 600px;
+    height: 200px;
+    background-color: lightgreen;
+    color: white;
+}
+
+.b3 {
+    width: 200px;
+    height: 100px;
+    background-color: azure;
+    overflow: scroll;
+}
+
+.b4 {
+    font-size: 150px;
+    background-color: bisque;
+}
+
+.b4 span {
+    background-color: coral;
+    margin: 20px;
+    padding: 10px;
+    border: 10px solid red;
+    font-size: 130px;
+    display: block;
+    background-clip: content-box;
+}
+
+.b5 {
+    width: 200px;
+    height: 20px;
+    border: 5px solid blue;
+    wordsp
+}
+
+.b6 {
+    width: 300px;
+    height: 200px;
+    border: 20px dotted red;
+    border-bottom-width: 50px;
+}
+
+.b7 {
+    width: 300px;
+    height: 200px;
+    border: 20px groove rgb(0, 255, 255);
+    border-top-style: double;
+    border-left-style: dotted;
+}
+
+.b8 {
+    width: 300px;
+    height: 200px;
+    border: 1px double green;
+    text-align: center;
+    line-height: 200px;
+}
