@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Box Shadows Explained</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .concept {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .example {
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .example:hover {
+            transform: translateY(-5px);
+        }
+
+        .demo-box {
+            width: 180px;
+            height: 150px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            font-weight: bold;
+            text-align: center;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .interactive-demo {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .control-group input[type="range"] {
+            width: 100%;
+        }
+
+        .value-display {
+            display: inline-block;
+            width: 50px;
+            text-align: right;
+            margin-left: 10px;
+        }
+
+        .color-controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-control {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .demo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .interactive-box {
+            width: 180px;
+            height: 150px;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .inset-control {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .inset-control input {
+            margin-right: 10px;
+        }
+
+        .summary {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .summary h3 {
+            margin-bottom: 15px;
+        }
+
+        .summary ul {
+            padding-left: 20px;
+        }
+
+        .summary li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS3 Box Shadows Explained</h1>
+            <p>Master box shadows to add depth and dimension to web elements</p>
+        </header>
+
+        <section class="section">
+            <h2>What is Box Shadow?</h2>
+            <div class="concept">
+                <p>The <code>box-shadow</code> property adds shadow effects around an element's frame. You can set
+                    multiple effects on one element, separated by commas.</p>
+                <p>The property values include:</p>
+                <ul>
+                    <li><strong>offset-x</strong>: Horizontal shadow position (required)</li>
+                    <li><strong>offset-y</strong>: Vertical shadow position (required)</li>
+                    <li><strong>blur-radius</strong>: Blur distance (optional)</li>
+                    <li><strong>spread-radius</strong>: Shadow size (optional)</li>
+                    <li><strong>color</strong>: Shadow color (optional)</li>
+                    <li><strong>inset</strong>: Changes shadow to inner shadow (optional)</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+                /* Basic syntax */
+                box-shadow: offset-x offset-y blur-radius spread-radius color inset;
+
+                /* Example */
+                box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5);
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Box Shadow Examples</h2>
+            <div class="examples-grid">
+                <div class="example">
+                    <h3>Basic Shadow</h3>
+                    <div class="demo-box" style="box-shadow: 5px 5px 0 #2c3e50;">
+                        Offset Shadow
+                    </div>
+                    <div class="code-example">
+                        box-shadow: 5px 5px 0 #2c3e50;
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Blurred Shadow</h3>
+                    <div class="demo-box" style="box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                        Blurred Shadow
+                    </div>
+                    <div class="code-example">
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Spread Shadow</h3>
+                    <div class="demo-box" style="box-shadow: 0 0 0 10px #e74c3c;">
+                        Spread Shadow
+                    </div>
+                    <div class="code-example">
+                        box-shadow: 0 0 0 10px #e74c3c;
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Inner Shadow</h3>
+                    <div class="demo-box" style="box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+                        Inner Shadow
+                    </div>
+                    <div class="code-example">
+                        box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Multiple Shadows</h3>
+                    <div class="demo-box" style="box-shadow: 
+                        0 0 10px #3498db,
+                        0 0 20px #e74c3c,
+                        0 0 30px #2ecc71;
+                    ">
+                        Multiple Shadows
+                    </div>
+                    <div class="code-example">
+                        box-shadow:
+                        0 0 10px #3498db,
+                        0 0 20px #e74c3c,
+                        0 0 30px #2ecc71;
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>Advanced Effect</h3>
+                    <div class="demo-box" style="box-shadow: 
+                        5px 5px 15px rgba(0,0,0,0.3),
+                        inset 5px 5px 15px rgba(255,255,255,0.5);
+                    ">
+                        Inner & Outer Combo
+                    </div>
+                    <div class="code-example">
+                        box-shadow:
+                        5px 5px 15px rgba(0,0,0,0.3),
+                        inset 5px 5px 15px rgba(255,255,255,0.5);
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Interactive Demo</h2>
+            <div class="interactive-demo">
+                <div class="controls-grid">
+                    <div class="control-group">
+                        <label for="offsetX">Horizontal Offset (offset-x): <span id="offsetXValue"
+                                class="value-display">5px</span></label>
+                        <input type="range" id="offsetX" min="-50" max="50" value="5">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="offsetY">Vertical Offset (offset-y): <span id="offsetYValue"
+                                class="value-display">5px</span></label>
+                        <input type="range" id="offsetY" min="-50" max="50" value="5">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="blurRadius">Blur Radius (blur-radius): <span id="blurRadiusValue"
+                                class="value-display">10px</span></label>
+                        <input type="range" id="blurRadius" min="0" max="50" value="10">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="spreadRadius">Spread Radius (spread-radius): <span id="spreadRadiusValue"
+                                class="value-display">0px</span></label>
+                        <input type="range" id="spreadRadius" min="0" max="50" value="0">
+                    </div>
+                </div>
+
+                <div class="color-controls">
+                    <div class="control-group color-control">
+                        <label for="shadowColor">Shadow Color:</label>
+                        <input type="color" id="shadowColor" value="#000000">
+                    </div>
+
+                    <div class="control-group color-control">
+                        <label for="shadowOpacity">Shadow Opacity: <span id="opacityValue"
+                                class="value-display">0.5</span></label>
+                        <input type="range" id="shadowOpacity" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+                </div>
+
+                <div class="inset-control">
+                    <input type="checkbox" id="inset">
+                    <label for="inset">Inner Shadow (inset)</label>
+                </div>
+
+                <div class="demo-container">
+                    <div class="interactive-box" id="interactiveBox">
+                        Interactive Demo
+                    </div>
+                </div>
+
+                <div class="code-example" id="demoCode">
+                    box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5);
+                </div>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h3>Key Points</h3>
+            <ul>
+                <li><code>box-shadow</code> can add one or more shadow effects to an element</li>
+                <li>Parameter order: horizontal offset → vertical offset → blur radius → spread radius → color</li>
+                <li>Use the <code>inset</code> keyword to create inner shadow effects</li>
+                <li>Multiple shadows are separated by commas, with earlier ones appearing on top</li>
+                <li>Shadows don't affect layout or trigger scrollbars</li>
+                <li>Proper use of shadows enhances UI depth and dimensionality</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        // Get all control elements
+        const offsetX = document.getElementById('offsetX');
+        const offsetY = document.getElementById('offsetY');
+        const blurRadius = document.getElementById('blurRadius');
+        const spreadRadius = document.getElementById('spreadRadius');
+        const shadowColor = document.getElementById('shadowColor');
+        const shadowOpacity = document.getElementById('shadowOpacity');
+        const inset = document.getElementById('inset');
+
+        // Get display elements
+        const offsetXValue = document.getElementById('offsetXValue');
+        const offsetYValue = document.getElementById('offsetYValue');
+        const blurRadiusValue = document.getElementById('blurRadiusValue');
+        const spreadRadiusValue = document.getElementById('spreadRadiusValue');
+        const opacityValue = document.getElementById('opacityValue');
+
+        // Get demo elements
+        const interactiveBox = document.getElementById('interactiveBox');
+        const demoCode = document.getElementById('demoCode');
+
+        // Update demo
+        function updateDemo() {
+            // Get current values
+            const x = offsetX.value;
+            const y = offsetY.value;
+            const blur = blurRadius.value;
+            const spread = spreadRadius.value;
+            const color = shadowColor.value;
+            const opacity = shadowOpacity.value;
+            const isInset = inset.checked;
+
+            // Update display values
+            offsetXValue.textContent = `${x}px`;
+            offsetYValue.textContent = `${y}px`;
+            blurRadiusValue.textContent = `${blur}px`;
+            spreadRadiusValue.textContent = `${spread}px`;
+            opacityValue.textContent = opacity;
+
+            // Convert color to RGBA format
+            const rgbColor = hexToRgb(color);
+            const rgbaColor = `rgba(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b}, ${opacity})`;
+
+            // Build box-shadow value
+            let shadowValue = `${x}px ${y}px ${blur}px ${spread}px ${rgbaColor}`;
+            if (isInset) {
+                shadowValue = `inset ${shadowValue}`;
+            }
+
+            // Apply shadow
+            interactiveBox.style.boxShadow = shadowValue;
+
+            // Update code display
+            demoCode.textContent = `box-shadow: ${shadowValue};`;
+        }
+
+        // Convert hex color to RGB object
+        function hexToRgb(hex) {
+            // Remove # symbol
+            hex = hex.replace('#', '');
+
+            // Parse RGB values
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+
+            return { r, g, b };
+        }
+
+        // Add event listeners
+        offsetX.addEventListener('input', updateDemo);
+        offsetY.addEventListener('input', updateDemo);
+        blurRadius.addEventListener('input', updateDemo);
+        spreadRadius.addEventListener('input', updateDemo);
+        shadowColor.addEventListener('input', updateDemo);
+        shadowOpacity.addEventListener('input', updateDemo);
+        inset.addEventListener('change', updateDemo);
+
+        // Initialize
+        updateDemo();
+    </script>
+</body>
+
+</html>
