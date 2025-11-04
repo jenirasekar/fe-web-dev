@@ -8,6 +8,7 @@
 .c1 {
     background-color: aquamarine;
     top: 60px;
+    z-index: 1;
 }
 
 .c2 {
@@ -54,4 +55,14 @@ img {
     display: inline-block;
     padding-left: 50px;
     padding-top: 25px;
+}
+
+.c4 {
+    background-color: chartreuse;
+    position: relative;
+}
+
+.c4 p {
+    position: absolute;
+    top: 0px;
 }
