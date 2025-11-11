@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout</title>
+    <style>
+      body {
+        text-align: center;
+        width: 960px;
+        margin: 0 auto;
+      }
+
+      .header,
+      .feature,
+      .footer {
+        background-color: rgb(236, 242, 248);
+        margin: 1%;
+        padding: 1%;
+      }
+
+      .header span {
+        margin-left: 1%;
+      }
+
+      .col1,
+      .col2,
+      .col3 {
+        background-color: rgb(236, 242, 248);
+        width: 31%;
+        float: left;
+        margin: 1%;
+        padding: 1% 0;
+      }
+
+      .content {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Logo</h1>
+    <div class="header">
+      <span><a href="#">Home</a></span>
+      <span><a href="#">Products</a></span>
+      <span><a href="#">Services</a></span>
+      <span><a href="#">About</a></span>
+      <span><a href="#">Contact</a></span>
+    </div>
+    <div class="content">
+      <div class="feature">Feature</div>
+      <div class="article">
+        <div class="col1">Column One</div>
+        <div class="col2">Column Two</div>
+        <div class="col3">Column Three</div>
+      </div>
+    </div>
+    <div class="footer">&COPY; Copyright 2025</div>
+  </body>
+</html>

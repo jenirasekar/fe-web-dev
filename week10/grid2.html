@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 20px;
+        background-color: #f8f9fa;
+        font: 3em sans-serif;
+      }
+      .container {
+        width: 940px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ddd;
+      }
+      .row {
+        display: flex;
+        margin-bottom: 10px;
+        height: 80px;
+        justify-content: center;
+      }
+      .col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 17px;
+        text-align: center;
+        margin: 2px;
+      }
+      .col-12 {
+        width: 940px;
+        background-color: #d9534f;
+      }
+      .col-6 {
+        width: 460px;
+        background-color: #5cb85c;
+      }
+
+      .col-4 {
+        width: 300px;
+        background-color: #f0ad4e;
+      }
+      .col-3 {
+        width: 220px;
+        background-color: #8e44ad;
+      }
+
+      .col-2 {
+        width: 140px;
+        background-color: #b91840;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col col-12">940px (Full width) (12 columns)</div>
+      </div>
+      <div class="row">
+        <div class="col col-6">460px (6 columns)</div>
+        <div class="col col-6">460px (6 columns)</div>
+      </div>
+      <div class="row">
+        <div class="col col-4">300 px (4 columns)</div>
+        <div class="col col-4">300 px (4 columns)</div>
+        <div class="col col-4">300 px (4 columns)</div>
+      </div>
+      <div class="row">
+        <div class="col col-3">230px (3 columns)</div>
+        <div class="col col-3">230px (3 columns)</div>
+        <div class="col col-6">460px (6 columns)</div>
+      </div>
+      <div class="row">
+        <div class="col col-2">140px (2 columns)</div>
+        <div class="col col-2">140px (2 columns)</div>
+        <div class="col col-2">140px (2 columns)</div>
+        <div class="col col-2">140px (2 columns)</div>
+        <div class="col col-6">460px (6 columns)</div>
+      </div>
+      <div class="row">
+        <div class="col col-4">300 px (4 columns)</div>
+        <div class="col col-2">140px (2 columns)</div>
+        <div class="col col-3">230px (3 columns)</div>
+        <div class="col col-3">230px (3 columns)</div>
+      </div>
+    </div>
+  </body>
+</html>
