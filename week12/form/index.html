@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <form action="" method="post" class="form">
+          <h2>Create an Account</h2>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter username" />
+          <br />
+          <br />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Enter email" required />
+          <br />
+          <br />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter password" />
+          <br />
+          <br />
+          <label for="cpassword">Confirm Password</label>
+          <input type="password" id="cpassword" name="cpassword" placeholder="Confirm password" />
+          <br />
+          <br />
+          <label for="gender">Gender</label>
+          <div class="gender">
+            <input type="radio" name="gender" id="gender" value="male" /> Male
+            <input type="radio" name="gender" id="gender" value="female" /> Female
+            <input type="radio" name="gender" id="gender" value="female" /> Other
+          </div>
+          <br />
+          <br />
+          <label for="country">Country</label>
+          <select name="country" id="country">
+            <option value="">Select country</option>
+            <option value="uk">United Kingdom</option>
+            <option value="id">Indonesia</option>
+            <option value="my">Malaysia</option>
+          </select>
+          <br />
+          <br />
+          <label for="interests">Interests</label>
+          <div class="interests">
+            <input type="checkbox" name="tech" id="tech" value="tech" /> Technology
+            <input type="checkbox" name="sports" id="sports" value="sports" /> Sports
+            <input type="checkbox" name="music" id="music" value="music" /> Music
+          </div>
+          <br />
+          <br />
+          <div class="agree">
+            <input type="checkbox" name="agree" id="agree" value="agree" /> I agree to the
+            <span>Terms of Service</span> and <span>Privacy Policy</span>
+          </div>
+          <button type="submit">Create Account</button>
+          <p>
+            Already have an account? <span><a href="">Sign In</a></span>
+          </p>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
